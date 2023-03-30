@@ -1,16 +1,12 @@
 import React from 'react';
+import SwiperSelect from './Swiper/SwiperSelect';
 
 const SelectWithRandomOptions = () => {
-  const options = Array.from({ length: 10 }, () => Math.floor(Math.random() * 100));
+    // Let's create a random array of numbers for our select component.
+  const options = Array.from({ length: 30 }, () => Math.floor(Math.random() * 1000));
 
   return (
-    <select>
-      {options.map((option) => (
-        <option key={option} value={option}>
-          {option}
-        </option>
-      ))}
-    </select>
+    <SwiperSelect options={options}/>
   );
 };
 
