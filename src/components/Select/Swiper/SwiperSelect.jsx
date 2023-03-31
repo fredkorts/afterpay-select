@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/keyboard';
-import SwiperCard from './SwiperCard';
 
 const StyledSwiperWrapper = styled.div`
 
@@ -79,64 +78,9 @@ const StyledSwiperWrapper = styled.div`
     }
 `;
 
-const StyledSwiperCard = styled.div`
-    min-width: 300px;
-    width: 100%;
-    height: 85px;
-    padding: 6px 0 6px 12px;
-    text-align: left;
-    border-left: 6px solid #00817a;
-    box-shadow: 0 0 12px 0 #bbb;
-    border-radius: 6px;
-
-    .selectedOption {
-      font-size: 2.5rem;
-      font-weight: bold;
-    }
-
-    .options {
-      display: flex;
-      justify-content: space-between;
-      padding-right: 0.5rem;
-
-      button {
-        padding: 0;
-        background: #fff;
-        color: #00817a;
-        font-size: 0.875rem;
-      }
-    }
-`;
-
-const SwiperSelect = (props) => {
-
-    const [value, setValue] = useState();
-    const [open, setOpen] = useState(false);
-    const [initialVal, setInitialVal] = useState(0);
-
-    useEffect(() => {
-      setValue(props.options[0]) // This will log the updated value
-    }, []);
-
-    const handleSlideChange = (swiper) => {
-      setValue(props.options[swiper.activeIndex])
-      setInitialVal(swiper.activeIndex);
-    }
-
-    const handleSlideSelect = (option) => {
-      setValue(option);
-      setOpen(true);
-    }
-
-    const handleOpenSelect = () => {
-      setOpen(false);
-    }
+const SwiperSelect = ({props, initialVal, handleSlideChange, handleSlideSelect}) => {
 
     return (
-      <>
-      { open ?         
-        <SwiperCard value={value} handleTrigger={handleOpenSelect}/>
-      :  
         <StyledSwiperWrapper>
           <div className="container">
             <Swiper
@@ -169,7 +113,7 @@ const SwiperSelect = (props) => {
                 on
             >
               {props.options.map((option) => (
-                <SwiperSlide onClick={() => handleSlideSelect(option)}>
+                <SwiperSlide key={option} onClick={() => handleSlideSelect(option)}>
                   {option}
                 </SwiperSlide>
               ))}
@@ -177,8 +121,6 @@ const SwiperSelect = (props) => {
             <div className="unit-label">€/Month</div>
           </div>
         </StyledSwiperWrapper>
-      }
-      </>
     );
   }
 
