@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/keyboard';
+import SwiperCard from './SwiperCard';
 
 const StyledSwiperWrapper = styled.div`
 
@@ -111,6 +112,7 @@ const SwiperSelect = (props) => {
 
     const [value, setValue] = useState();
     const [open, setOpen] = useState(false);
+    const [initialVal, setInitialVal] = useState(0);
 
     useEffect(() => {
       setValue(props.options[0]) // This will log the updated value
@@ -118,6 +120,7 @@ const SwiperSelect = (props) => {
 
     const handleSlideChange = (swiper) => {
       setValue(props.options[swiper.activeIndex])
+      setInitialVal(swiper.activeIndex);
     }
 
     const handleSlideSelect = (option) => {
@@ -132,20 +135,13 @@ const SwiperSelect = (props) => {
     return (
       <>
       { open ?         
-        <StyledSwiperCard>
-          <div className="selectedOption">{value}</div>
-          <div className="options">
-            <div className="unit-label">€/Month</div>
-            <div className="button">
-              <button onClick={() => {handleOpenSelect()}}>EDIT</button>
-            </div>
-          </div>
-        </StyledSwiperCard>
+        <SwiperCard value={value} handleTrigger={handleOpenSelect}/>
       :  
         <StyledSwiperWrapper>
           <div className="container">
             <Swiper
                 modules={[Keyboard, Navigation]}
+                initialSlide = {initialVal}
                 keyboard={{
                     enabled: true,
                   }}
@@ -173,7 +169,7 @@ const SwiperSelect = (props) => {
                 on
             >
               {props.options.map((option) => (
-                <SwiperSlide onClick={(swiper) => handleSlideSelect(option)}>
+                <SwiperSlide onClick={() => handleSlideSelect(option)}>
                   {option}
                 </SwiperSlide>
               ))}
