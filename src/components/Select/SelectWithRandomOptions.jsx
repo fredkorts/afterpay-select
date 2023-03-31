@@ -6,7 +6,9 @@ const SelectWithRandomOptions = () => {
   const options = Array.from({ length: 30 }, () => Math.floor(Math.random() * 1000));
 
   return (
-    <SwiperSelect options={options}/>
+    <>
+        <SwiperSelect options={options}/>
+    </>
   );
 };
 
