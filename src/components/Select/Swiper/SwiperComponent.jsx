@@ -8,16 +8,18 @@ import SwiperSelect from './SwiperSelect';
 
 const SwiperComponent = (props) => {
 
+    const {options, primaryColor, secondaryColor, subtitle, keyboardEnabled} = props;
+
     const [value, setValue] = useState();
     const [open, setOpen] = useState(false);
     const [initialVal, setInitialVal] = useState(0);
 
     useEffect(() => {
-      setValue(props.options[0]) // This will log the updated value
+      setValue(options[0]) // This will log the updated value
     }, []);
 
     const handleSlideChange = (swiper) => {
-      setValue(props.options[swiper.activeIndex])
+      setValue(options[swiper.activeIndex])
       setInitialVal(swiper.activeIndex);
     }
 
@@ -32,7 +34,26 @@ const SwiperComponent = (props) => {
 
     return (
       <>
-      { open ? <SwiperCard value={value} handleTrigger={handleOpenSelect}/> : <SwiperSelect props={props}  initialVal={initialVal} handleSlideChange={handleSlideChange} handleSlideSelect={handleSlideSelect} handleOpenSelect={handleOpenSelect}/> }
+        { open ? 
+          <SwiperCard 
+            value={value} 
+            handleTrigger={handleOpenSelect}
+            subtitle={subtitle}
+            primaryColor={primaryColor}
+            secondaryColor={secondaryColor}
+          /> 
+          : 
+          <SwiperSelect 
+            options={options}  
+            initialVal={initialVal} 
+            handleSlideChange={handleSlideChange} 
+            handleSlideSelect={handleSlideSelect} 
+            handleOpenSelect={handleOpenSelect}
+            subtitle={subtitle}
+            primaryColor={primaryColor}
+            secondaryColor={secondaryColor}
+          /> 
+        }
       </>
     );
   }

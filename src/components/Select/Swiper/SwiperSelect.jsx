@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 import { Keyboard, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useState, useEffect } from 'react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/keyboard';
 
-const StyledSwiperWrapper = styled.div`
+const SwiperSelect = (props) => {
+
+    const { options, initialVal, handleSlideChange, handleSlideSelect, subtitle, primaryColor, secondaryColor} = props;
+
+    const StyledSwiperWrapper = styled.div`
 
     .container {
       width: 100%;
@@ -49,7 +52,7 @@ const StyledSwiperWrapper = styled.div`
     .swiper-slide {
         font-family: Montserrat, sans-serif;
         font-size: 2rem;
-        color: #474747;
+        color: ${primaryColor};
     }
 
     .swiper-slide-active {
@@ -74,11 +77,9 @@ const StyledSwiperWrapper = styled.div`
       font-weight: bold;
       font-family: Montserrat, sans-serif;
       font-size: 1.2rem;
-      color: #474747;
+      color: ${primaryColor};
     }
 `;
-
-const SwiperSelect = ({props, initialVal, handleSlideChange, handleSlideSelect}) => {
 
     return (
         <StyledSwiperWrapper>
@@ -112,13 +113,13 @@ const SwiperSelect = ({props, initialVal, handleSlideChange, handleSlideSelect})
                 onSlideChange={(swiper) => handleSlideChange(swiper)}
                 on
             >
-              {props.options.map((option) => (
+              {options.map((option) => (
                 <SwiperSlide key={option} onClick={() => handleSlideSelect(option)}>
                   {option}
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className="unit-label">€/Month</div>
+            <div className="unit-label">{subtitle}</div>
           </div>
         </StyledSwiperWrapper>
     );

@@ -7,7 +7,13 @@ const SelectWithRandomOptions = () => {
 
   return (
     <>
-        <SwiperComponent options={options} primaryColor={"#000"} secondaryColor={"000"} subtitle={"€/Month"} keyboardEnabled/>
+        <SwiperComponent 
+          options={options} 
+          primaryColor={"#474747"} 
+          secondaryColor={"#00817a"} 
+          subtitle={"€/Month"} 
+          keyboardEnabled
+        />
     </>
   );
 };
