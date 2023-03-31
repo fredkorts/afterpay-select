@@ -38,7 +38,7 @@ const SwiperCard = ({value, handleTrigger}) => {
           <div className="options">
             <div className="unit-label">€/Month</div>
             <div className="button">
-              <button onClick={handleTrigger}>EDIT</button>
+              <button aria-label="Select new value" onClick={handleTrigger}>EDIT</button>
             </div>
           </div>
         </StyledSwiperCard>
