@@ -8,6 +8,10 @@ import 'swiper/css/keyboard';
 
 const StyledSwiperWrapper = styled.div`
 
+    .container {
+      width: 100%;
+    }
+
     .swiper:before {
         content: "";
         display: block;
@@ -36,6 +40,11 @@ const StyledSwiperWrapper = styled.div`
         background: linear-gradient(270deg,#fff,hsla(0,0%,100%,0));
     }
 
+    .swiper-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
     .swiper-slide {
         font-family: Montserrat, sans-serif;
         font-size: 2rem;
@@ -46,31 +55,71 @@ const StyledSwiperWrapper = styled.div`
         font-size: 2.5rem;
         color: #005e51;
     }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: #005e51;
+    }
+
+    .swiper-button-prev:before,
+    .swiper-button-prev:after,
+    .swiper-button-next:before,
+    .swiper-button-next:after {
+      font-size: 32px;
+    }
+
+
+    .unit-label {
+      font-weight: bold;
+      font-family: Montserrat, sans-serif;
+      font-size: 1.2rem;
+      color: #474747;
+    }
 `;
 
 const SwiperSelect = (props) => {
 
     return (
-      <StyledSwiperWrapper className="custom-select-wrapper">
-        <Swiper
-            modules={[Keyboard, Navigation]}
-            keyboard={{
-                enabled: true,
-              }}
-            navigation
-            spaceBetween={5}
-            slidesPerView={6}
-            centeredSlides={true}
-            onSlideChange={(swiper) => console.log(swiper)}
-        >
-          {props.options.map((option) => (
-            <SwiperSlide>
-              {option}
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <div class="unit-label">€/Month</div>
-      </StyledSwiperWrapper>
+      <>
+        <StyledSwiperWrapper>
+          <div className="container">
+            <Swiper
+                modules={[Keyboard, Navigation]}
+                keyboard={{
+                    enabled: true,
+                  }}
+                navigation
+                breakpoints={{
+                  "@0.00": {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                  },
+                  "@0.75": {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  "@1.00": {
+                    slidesPerView: 4,
+                    spaceBetween: 10,
+                  },
+                  "@1.50": {
+                    slidesPerView: 6,
+                    spaceBetween: 5,
+                  },
+                }}
+                centeredSlides={true}
+                onSlideChange={(swiper) => console.log(swiper)}
+            >
+              {props.options.map((option) => (
+                <SwiperSlide>
+                  {option}
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <div class="unit-label">€/Month</div>
+          </div>
+        </StyledSwiperWrapper>
+      </>
     );
   }
 
