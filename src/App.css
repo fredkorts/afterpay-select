@@ -1,8 +1,20 @@
 #root {
-  max-width: 50%;
+  max-width: 100%;
   width: 100%;
   margin: 0 auto;
   text-align: center;
+}
+
+@media (min-width: 400px) {
+  #root {
+    max-width: 75%;
+  }
+}
+
+@media (min-width: 800px) {
+  #root {
+    max-width: 50%;
+  }
 }
 
 .logo {

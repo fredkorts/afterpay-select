@@ -19,6 +19,7 @@ function App() {
   // Let's create a random array of numbers for our select component.
   // const options = Array.from({ length: 30 }, () => Math.floor(Math.random() * 10000));
 
+  // Set the chosen value.
   const handleSelectValue = (val: number) => {
     setSelectedValue(val);
   }
