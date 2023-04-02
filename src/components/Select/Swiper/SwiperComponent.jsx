@@ -8,14 +8,13 @@ import SwiperSelect from './SwiperSelect';
 
 const SwiperComponent = (props) => {
 
-    const {options, primaryColor, secondaryColor, subtitle, keyboardEnabled, backgroundColor} = props;
+    const {options, value, primaryColor, secondaryColor, subtitle, keyboardEnabled, backgroundColor, onSelectValue} = props;
 
-    const [value, setValue] = useState();
     const [open, setOpen] = useState(false);
     const [initialVal, setInitialVal] = useState(0);
 
     useEffect(() => {
-      setValue(options[0]) // This will log the updated value
+      onSelectValue(options[0]);
     }, []);
 
     const handleSlideChange = (swiper) => {
@@ -24,7 +23,7 @@ const SwiperComponent = (props) => {
     }
 
     const handleSlideSelect = (option) => {
-      setValue(option);
+      onSelectValue(option);
       setOpen(true);
     }
 
