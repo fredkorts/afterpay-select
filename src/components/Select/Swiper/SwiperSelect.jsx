@@ -8,12 +8,13 @@ import 'swiper/css/keyboard';
 
 const SwiperSelect = (props) => {
 
-    const { options, initialVal, handleSlideChange, handleSlideSelect, subtitle, primaryColor, secondaryColor} = props;
+    const { options, initialVal, handleSlideChange, handleSlideSelect, subtitle, primaryColor, secondaryColor, backgroundColor, keyboardEnabled} = props;
 
     const StyledSwiperWrapper = styled.div`
 
     .container {
       width: 100%;
+      background-color: ${backgroundColor};
     }
 
     .swiper:before {
@@ -27,7 +28,7 @@ const SwiperSelect = (props) => {
         z-index: 3;
         pointer-events: none;
         max-width: 150px;
-        background: linear-gradient(90deg,#fff,hsla(0,0%,100%,0));
+        background: linear-gradient(90deg,${backgroundColor},hsla(0,0%,100%,0));
     }
 
     .swiper:after {
@@ -41,7 +42,7 @@ const SwiperSelect = (props) => {
         z-index: 3;
         pointer-events: none;
         max-width: 150px;
-        background: linear-gradient(270deg,#fff,hsla(0,0%,100%,0));
+        background: linear-gradient(270deg,${backgroundColor},hsla(0,0%,100%,0));
     }
 
     .swiper-wrapper {
@@ -57,12 +58,12 @@ const SwiperSelect = (props) => {
 
     .swiper-slide-active {
         font-size: 2.5rem;
-        color: #005e51;
+        color: ${secondaryColor};
     }
 
     .swiper-button-prev,
     .swiper-button-next {
-      color: #005e51;
+      color: ${secondaryColor};
     }
 
     .swiper-button-prev:before,
@@ -88,7 +89,7 @@ const SwiperSelect = (props) => {
                 modules={[Keyboard, Navigation]}
                 initialSlide = {initialVal}
                 keyboard={{
-                    enabled: true,
+                    enabled: (keyboardEnabled || false),
                   }}
                 navigation
                 breakpoints={{

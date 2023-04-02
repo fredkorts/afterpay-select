@@ -8,7 +8,7 @@ import SwiperSelect from './SwiperSelect';
 
 const SwiperComponent = (props) => {
 
-    const {options, primaryColor, secondaryColor, subtitle, keyboardEnabled} = props;
+    const {options, primaryColor, secondaryColor, subtitle, keyboardEnabled, backgroundColor} = props;
 
     const [value, setValue] = useState();
     const [open, setOpen] = useState(false);
@@ -41,6 +41,7 @@ const SwiperComponent = (props) => {
             subtitle={subtitle}
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
+            backgroundColor={backgroundColor}
           /> 
           : 
           <SwiperSelect 
@@ -52,6 +53,8 @@ const SwiperComponent = (props) => {
             subtitle={subtitle}
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}
+            backgroundColor={backgroundColor}
+            keyboardEnabled={keyboardEnabled}
           /> 
         }
       </>

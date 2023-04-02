@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-const SwiperCard = ({value, handleTrigger, subtitle, primaryColor, secondaryColor}) => {
+const SwiperCard = ({value, handleTrigger, subtitle, primaryColor, secondaryColor, backgroundColor}) => {
 
     const StyledSwiperCard = styled.div`
-    min-width: 300px;
+    background-color: ${backgroundColor};
     width: 100%;
     height: 85px;
     padding: 6px 0 6px 12px;
@@ -12,9 +12,14 @@ const SwiperCard = ({value, handleTrigger, subtitle, primaryColor, secondaryColo
     box-shadow: 0 0 12px 0 #bbb;
     border-radius: 6px;
 
+    .unit-label {
+      color: ${primaryColor};
+    }
+
     .selectedOption {
       font-size: 2.5rem;
       font-weight: bold;
+      color: ${primaryColor};
     }
 
     .options {
