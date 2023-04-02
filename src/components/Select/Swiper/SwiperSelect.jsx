@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Keyboard, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { StyledSwiperWrapper } from './Styles/SwiperSelect';
@@ -44,10 +45,9 @@ const SwiperSelect = (props) => {
                 }}
                 centeredSlides={true}
                 onSlideChange={(swiper) => handleSlideChange(swiper)}
-                on
             >
-              {options.map((option) => (
-                <SwiperSlide key={option} onClick={() => handleSlideSelect(option)}>
+              {options.map((option, index) => (
+                <SwiperSlide key={index} onClick={() => handleSlideSelect(option)}>
                   {option}
                 </SwiperSlide>
               ))}

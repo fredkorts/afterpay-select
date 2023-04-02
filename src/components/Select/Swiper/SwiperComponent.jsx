@@ -18,7 +18,7 @@ const SwiperComponent = (props) => {
     }, []);
 
     const handleSlideChange = (swiper) => {
-      setValue(options[swiper.activeIndex])
+      onSelectValue(options[swiper.activeIndex]);
       setInitialVal(swiper.activeIndex);
     }
 
