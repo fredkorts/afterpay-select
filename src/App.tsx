@@ -54,7 +54,7 @@ function App() {
                 options={options} 
                 value={selectedValue}
                 backgroundColor={"#fff"}
-                primaryColor={"red"} 
+                primaryColor={"#474747"} 
                 secondaryColor={"#00817a"} 
                 subtitle={"€/Month"} 
                 keyboardEnabled
