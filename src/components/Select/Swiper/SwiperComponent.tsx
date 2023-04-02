@@ -31,6 +31,7 @@ const SwiperComponent: React.FC<SwiperComponentProps> = (props) => {
       onSelectValue
     } = props;
 
+    // Use this to control whether we show the card view or the slider view. The 'Edit' button triggers this on the card.
     const [open, setOpen] = useState<boolean>(false);
     const [initialVal, setInitialVal] = useState<number>(0);
 
