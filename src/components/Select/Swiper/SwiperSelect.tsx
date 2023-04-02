@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React from 'react';
 import { Keyboard, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { StyledSwiperWrapper } from './Styles/SwiperSelect';
@@ -7,9 +7,31 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/keyboard';
 
-const SwiperSelect = (props) => {
+interface SwiperSelectProps {
+  options: number[];
+  initialVal: number;
+  handleSlideChange: (swiper: any) => void;
+  handleSlideSelect: (option: number) => void;
+  subtitle: string;
+  primaryColor: string;
+  secondaryColor: string;
+  backgroundColor: string;
+  keyboardEnabled: boolean;
+}
 
-    const { options, initialVal, handleSlideChange, handleSlideSelect, subtitle, primaryColor, secondaryColor, backgroundColor, keyboardEnabled} = props;
+const SwiperSelect: React.FC<SwiperSelectProps> = (props) => {
+
+    const { 
+      options, 
+      initialVal, 
+      handleSlideChange, 
+      handleSlideSelect, 
+      subtitle, 
+      primaryColor, 
+      secondaryColor, 
+      backgroundColor, 
+      keyboardEnabled
+    } = props;
 
     return (
         <StyledSwiperWrapper

@@ -1,19 +1,31 @@
+import React from 'react';
 import { useState, useEffect } from 'react'
 import './App.css'
 import SwiperComponent from './components/Select/Swiper/SwiperComponent'
+
+interface SwiperComponentProps {
+  options: number[];
+  value: number | null;
+  backgroundColor: string;
+  primaryColor: string;
+  secondaryColor: string;
+  subtitle: string;
+  keyboardEnabled: boolean;
+  onselectValue: (val: number) => void;
+}
 
 function App() {
 
   // Let's create a random array of numbers for our select component.
   // const options = Array.from({ length: 30 }, () => Math.floor(Math.random() * 10000));
 
-  const handleSelectValue = (val) => {
+  const handleSelectValue = (val: number) => {
     setSelectedValue(val);
   }
 
   // Fetch some random numbers data from an API.
-  const [selectedValue, setSelectedValue] = useState(null);
-  const [options, setOptions] = useState([])
+  const [selectedValue, setSelectedValue] = useState<number | null>(null);
+  const [options, setOptions] = useState<number[]>([]);
 
   useEffect(() => {
     const fetchData = async() => {
@@ -28,19 +40,20 @@ function App() {
     }
     fetchData();
   },[])
+  
 
   return (
     <div className="App">
       <div className="card">
         <SwiperComponent
-            options={options} 
-            value={selectedValue}
-            backgroundColor={"#fff"}
-            primaryColor={"#474747"} 
-            secondaryColor={"#00817a"} 
-            subtitle={"€/Month"} 
-            keyboardEnabled
-            onSelectValue={handleSelectValue}
+                options={options} 
+                value={selectedValue}
+                backgroundColor={"#fff"}
+                primaryColor={"#474747"} 
+                secondaryColor={"#00817a"} 
+                subtitle={"€/Month"} 
+                keyboardEnabled
+                onSelectValue={handleSelectValue}
           />
       </div>
     </div>

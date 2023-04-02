@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
-export const StyledSwiperCard = styled.div`
+interface StyledSwiperCardProps {
+  backgroundColor?: string;
+  primaryColor?: string;
+  secondaryColor?: string;
+}
+
+export const StyledSwiperCard = styled.div<StyledSwiperCardProps>`
 background-color: ${(props) => props.backgroundColor || '#fff'};
 width: 100%;
 height: 85px;

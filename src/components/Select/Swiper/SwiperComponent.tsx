@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 
 import 'swiper/css';
@@ -6,23 +7,43 @@ import 'swiper/css/keyboard';
 import SwiperCard from './SwiperCard';
 import SwiperSelect from './SwiperSelect';
 
-const SwiperComponent = (props) => {
+interface SwiperComponentProps {
+  options: number[];
+  value: number | null;
+  primaryColor: string;
+  secondaryColor: string;
+  subtitle: string;
+  keyboardEnabled: boolean;
+  backgroundColor: string;
+  onSelectValue: (val: number) => void;
+}
 
-    const {options, value, primaryColor, secondaryColor, subtitle, keyboardEnabled, backgroundColor, onSelectValue} = props;
+const SwiperComponent: React.FC<SwiperComponentProps> = (props) => {
 
-    const [open, setOpen] = useState(false);
-    const [initialVal, setInitialVal] = useState(0);
+    const {
+      options, 
+      value, 
+      primaryColor, 
+      secondaryColor, 
+      subtitle, 
+      keyboardEnabled, 
+      backgroundColor, 
+      onSelectValue
+    } = props;
+
+    const [open, setOpen] = useState<boolean>(false);
+    const [initialVal, setInitialVal] = useState<number>(0);
 
     useEffect(() => {
       onSelectValue(options[0]);
     }, []);
 
-    const handleSlideChange = (swiper) => {
+    const handleSlideChange = (swiper: any) => {
       onSelectValue(options[swiper.activeIndex]);
       setInitialVal(swiper.activeIndex);
     }
 
-    const handleSlideSelect = (option) => {
+    const handleSlideSelect = (option: number) => {
       onSelectValue(option);
       setOpen(true);
     }
@@ -48,7 +69,6 @@ const SwiperComponent = (props) => {
             initialVal={initialVal} 
             handleSlideChange={handleSlideChange} 
             handleSlideSelect={handleSlideSelect} 
-            handleOpenSelect={handleOpenSelect}
             subtitle={subtitle}
             primaryColor={primaryColor}
             secondaryColor={secondaryColor}

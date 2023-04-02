@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
-export const StyledSwiperWrapper = styled.div`
+interface StyledSwiperCardProps {
+  backgroundColor?: string;
+  primaryColor?: string;
+  secondaryColor?: string;
+}
+
+export const StyledSwiperWrapper = styled.div<StyledSwiperCardProps>`
 
     .container {
       width: 100%;
