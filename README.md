@@ -1,5 +1,3 @@
-Raigo Tuulik
-
 # Afterpay Select Component
 
 A custom React component for replacing the default HTML select element, built using the Swiper.js library. This mobile-ready component offers a carousel slider for displaying and selecting options, easily usable with a finger, mouse, or keyboard. It comes with built-in customization options to seamlessly integrate with your application's style.
