@@ -31,7 +31,7 @@ npm run build
 ### Method 2: Visit the demo page
 
 ```
-my url
+https://6cbf2e1a.afterpay-select.pages.dev/
 ```
 
 ## Configuration Options
