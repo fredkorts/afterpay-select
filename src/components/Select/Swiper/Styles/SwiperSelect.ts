@@ -49,6 +49,7 @@ export const StyledSwiperWrapper = styled.div<StyledSwiperCardProps>`
     .swiper-slide {
         font-family: Montserrat, sans-serif;
         font-size: 2rem;
+        cursor: pointer;
         color: ${(props) => props.primaryColor || '#000'};
     }
 

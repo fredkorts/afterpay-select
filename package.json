@@ -1,7 +1,19 @@
 {
   "name": "afterpay-select",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "This is a test assignment for Afterpay",
+  "author": "Fred Korts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fredkorts/afterpay-select"
+  },
+  "keywords": [
+    "afterpay",
+    "select",
+    "test-assignment"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -47,6 +47,7 @@ const SwiperSelect: React.FC<SwiperSelectProps> = (props) => {
                     enabled: (keyboardEnabled || false),
                   }}
                 navigation
+                spaceBetween={20}
                 breakpoints={{
                   "@0.00": {
                     slidesPerView: 1,
@@ -58,11 +59,11 @@ const SwiperSelect: React.FC<SwiperSelectProps> = (props) => {
                   },
                   "@1.00": {
                     slidesPerView: 4,
-                    spaceBetween: 10,
+                    spaceBetween: 20,
                   },
                   "@1.50": {
                     slidesPerView: 6,
-                    spaceBetween: 5,
+                    spaceBetween: 20,
                   },
                 }}
                 centeredSlides={true}

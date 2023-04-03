@@ -25,7 +25,7 @@ const SwiperCard: React.FC<SwiperCardProps> = ({
           primaryColor={primaryColor}
           secondaryColor={secondaryColor}
         >
-          <div className="selectedOption">{value}</div>
+          <div className="selected-option">{value}</div>
           <div className="options">
             <div className="unit-label">{subtitle}</div>
             <div className="button">

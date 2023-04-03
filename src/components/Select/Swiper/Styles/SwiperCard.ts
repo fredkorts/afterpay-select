@@ -8,9 +8,10 @@ interface StyledSwiperCardProps {
 
 export const StyledSwiperCard = styled.div<StyledSwiperCardProps>`
 background-color: ${(props) => props.backgroundColor || '#fff'};
-width: 100%;
+width: auto;
 height: 85px;
 padding: 6px 0 6px 12px;
+margin: 10px;
 text-align: left;
 border-left: 6px solid ${(props) => props.secondaryColor || '#fff'};
 box-shadow: 0 0 12px 0 #bbb;
@@ -20,7 +21,7 @@ border-radius: 6px;
   color: ${(props) => props.primaryColor || '#fff'};
 }
 
-.selectedOption {
+.selected-option {
   font-size: 2.5rem;
   font-weight: bold;
   color: ${(props) => props.primaryColor || '#fff'};
@@ -36,6 +37,7 @@ border-radius: 6px;
     background: #fff;
     color: ${(props) => props.secondaryColor || '#fff'};
     font-size: 0.875rem;
+    border: 2px solid white;
   }
 }
 `;
