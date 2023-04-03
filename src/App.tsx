@@ -16,7 +16,7 @@ interface SwiperComponentProps {
 
 function App() {
 
-  // Let's create a random array of numbers for our select component.
+  // A random array of values for our options array.
   const options = Array.from({ length: 30 }, () => Math.floor(Math.random() * 10000));
 
   const [selectedValue, setSelectedValue] = useState<number | null>(null);
